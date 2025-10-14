@@ -1,5 +1,5 @@
 ---
-title: 'UROS Project Officially Launched'
+title: 'UOS Project Officially Launched'
 description: 'The Human-Cyber-Physical Convergence Operating System project for power information scenarios has been officially launched, with Nanjing University and industry partners working together to advance the project.'
 pubDate: 2024-01-15
 lang: 'en'

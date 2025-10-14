@@ -1,13 +1,13 @@
 ---
 title: 'First Technical Workshop Successfully Held'
-description: 'The UROS project team held its first technical workshop to discuss the core technical architecture and implementation of the human-cyber-physical convergence operating system.'
+description: 'The UOS project team held its first technical workshop to discuss the core technical architecture and implementation of the human-cyber-physical convergence operating system.'
 pubDate: 2024-03-20
 lang: 'en'
 ---
 
 ## Workshop Overview
 
-On March 20, 2024, the UROS project team held its first technical workshop in Nanjing. Technical experts from all participating institutions engaged in in-depth discussions on the core technical system of the human-cyber-physical convergence operating system.
+On March 20, 2024, the UOS project team held its first technical workshop in Nanjing. Technical experts from all participating institutions engaged in in-depth discussions on the core technical system of the human-cyber-physical convergence operating system.
 
 ## Main Topics
 

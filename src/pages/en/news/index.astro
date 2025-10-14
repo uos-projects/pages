@@ -12,7 +12,7 @@ const allNews = await getCollection('news', ({ data }) => {
 const sortedNews = allNews.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<Layout title="News - UROS">
+<Layout title="News - UOS">
   <section class="page-header">
     <div class="container">
       <h1>{t('news.title')}</h1>

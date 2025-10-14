@@ -34,7 +34,7 @@ const teams = [
 ];
 ---
 
-<Layout title="研究团队 - UROS">
+<Layout title="研究团队 - UOS">
   <section class="page-header">
     <div class="container">
       <h1>{t('team.title')}</h1>
@@ -45,30 +45,41 @@ const teams = [
     <div class="container">
       <div class="team-intro">
         <p>
-          UROS项目由南京大学牵头，联合江苏南大尚诚高科技实业有限公司与山东中创软件商用中间件股份有限公司共同开展。
+          UOS项目由南京大学牵头，联合江苏南大尚诚高科技实业有限公司与山东中创软件商用中间件股份有限公司共同开展。
           三方发挥各自优势，协同推进项目的技术研发、产业应用和生态建设。
         </p>
       </div>
 
       <div class="teams-layout">
-        <!-- 南京大学和项目负责人 -->
+        <!-- 南京大学 -->
         <div class="nju-section">
           <div class="nju-card card">
-            <div class="team-logo">
-              <img src={teams[0].logo} alt="Logo" />
+            <div class="nju-content">
+              <div class="nju-left">
+                <div class="team-logo">
+                  <img src={teams[0].logo} alt="Logo" />
+                </div>
+                <div class="team-header">
+                  <span class="team-role">{teams[0].role}</span>
+                </div>
+                <p class="team-description">{teams[0].description}</p>
+                {teams[0].website !== '#' && (
+                  <a href={teams[0].website} target="_blank" rel="noopener noreferrer" class="team-link">
+                    访问官网 →
+                  </a>
+                )}
+              </div>
+              <div class="nju-right">
+                <div class="team-details">
+                  <p>
+                    本项目承担单位南京大学是教育部直属的重点综合性大学，首批入选国家"211工程"和"985工程"建设序列，首批入选国家"双一流"建设高校，首批入选国家级双创示范基地。项目依托南京大学计算机软件新技术全国重点实验室，负责人及其团队在软件方法学和基础软件相关技术研究和系统研发方面有良好的工作基础，曾两次获得国家科技进步二等奖，承当包括基金委创新群体、重大研究计划集成项目、国家重点研发计划项目等多项。
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="team-header">
-              <span class="team-role">{teams[0].role}</span>
-            </div>
-            <p class="team-description">{teams[0].description}</p>
-            {teams[0].website !== '#' && (
-              <a href={teams[0].website} target="_blank" rel="noopener noreferrer" class="team-link">
-                访问官网 →
-              </a>
-            )}
           </div>
           
-          <div class="principal-card card">
+          {/* <div class="principal-card card">
             <h4 class="principal-title">项目负责人</h4>
             <div class="principal-profile">
               <div class="principal-avatar">
@@ -86,7 +97,7 @@ const teams = [
                 )}
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <!-- 尚诚和中创 -->
@@ -144,7 +155,7 @@ const teams = [
 
   .nju-section {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 2rem;
     margin-bottom: 2rem;
   }
@@ -155,7 +166,28 @@ const teams = [
     gap: 2rem;
   }
 
-  .nju-card,
+  .nju-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nju-content {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .nju-left {
+    flex-shrink: 0;
+    text-align: center;
+    min-width: 300px;
+  }
+
+  .nju-right {
+    flex: 1;
+    text-align: left;
+  }
+
   .principal-card,
   .partner-card {
     display: flex;
@@ -170,6 +202,14 @@ const teams = [
     align-items: center;
     min-height: 100px;
     padding: 1rem;
+    flex-shrink: 0;
+  }
+
+  .nju-left .team-logo {
+    justify-content: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    min-height: auto;
   }
 
   .team-logo img {
@@ -181,13 +221,21 @@ const teams = [
   }
 
   .zhongchuang-logo {
-    max-height: 60px !important;
-    height: 60px !important;
+    max-height: 100px !important;
+    height: auto !important;
     width: auto !important;
   }
 
   .team-header {
     margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .nju-left .team-header {
+    margin-bottom: 1rem;
+  }
+
+  .nju-left .team-description {
     text-align: center;
   }
 
@@ -204,8 +252,24 @@ const teams = [
   .team-description {
     color: var(--color-text-light);
     line-height: 1.7;
-    flex: 1;
     margin-bottom: 1rem;
+  }
+
+  .team-details {
+    margin-top: 1.5rem;
+    padding-top: 0;
+  }
+
+  .team-details p {
+    color: var(--color-text);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    text-align: justify;
+  }
+
+  .team-details p:last-child {
+    margin-bottom: 0;
   }
 
   .team-link {
@@ -289,6 +353,19 @@ const teams = [
 
     .partner-section {
       grid-template-columns: 1fr;
+    }
+
+    .nju-content {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .nju-left {
+      min-width: auto;
+    }
+
+    .nju-right {
+      text-align: center;
     }
 
     .principal-profile {

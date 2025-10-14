@@ -1,13 +1,13 @@
 ---
 title: 'Significant Progress in Standards Development'
-description: 'The UROS project has made important progress in developing resource model standards and communication interaction standards, laying a foundation for ecosystem development.'
+description: 'The UOS project has made important progress in developing resource model standards and communication interaction standards, laying a foundation for ecosystem development.'
 pubDate: 2024-06-10
 lang: 'en'
 ---
 
 ## Standards Development Progress
 
-The UROS project has made significant progress in standards development. The project team has completed the first drafts of resource model standards and communication interaction standards, and has conducted preliminary validation work in the power information sector.
+The UOS project has made significant progress in standards development. The project team has completed the first drafts of resource model standards and communication interaction standards, and has conducted preliminary validation work in the power information sector.
 
 ## Standards System
 

@@ -1,10 +1,10 @@
-# UROS 项目网站
+# UOS 项目网站
 
 面向电力信息场景的人机物融合操作系统技术研发项目官方网站
 
 ## 项目简介
 
-UROS (Ubiquitous and Resilient Operating System) 是一个面向电力信息场景的人机物融合操作系统。本网站用于展示项目信息、研究成果和新闻动态。
+UOS (Ubiquitous and Resilient Operating System) 是一个面向电力信息场景的人机物融合操作系统。本网站用于展示项目信息、研究成果和新闻动态。
 
 ## 技术栈
 
@@ -106,4 +106,4 @@ News content...
 
 ## 许可证
 
-版权所有 © 2024 UROS Project. 保留所有权利。
+版权所有 © 2024 UOS Project. 保留所有权利。
