@@ -1,0 +1,183 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { useTranslations } from '../config';
+
+const t = useTranslations('zh');
+---
+
+<Layout title="UROS - 面向电力信息场景的人机物融合操作系统">
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">{t('home.hero.title')}</h1>
+        <p class="hero-subtitle">{t('home.hero.subtitle')}</p>
+        <p class="hero-description">{t('home.hero.description')}</p>
+        <div class="hero-actions">
+          <a href="/about" class="btn btn-primary">了解更多</a>
+          <a href="/news" class="btn btn-secondary">最新动态</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features section">
+    <div class="container">
+      <h2 class="section-title">{t('home.features.title')}</h2>
+      <div class="features-grid">
+        <div class="feature-card card">
+          <div class="feature-icon">🌐</div>
+          <h3>{t('home.features.ubiquitous.title')}</h3>
+          <p>{t('home.features.ubiquitous.desc')}</p>
+        </div>
+        <div class="feature-card card">
+          <div class="feature-icon">⚙️</div>
+          <h3>{t('home.features.software.title')}</h3>
+          <p>{t('home.features.software.desc')}</p>
+        </div>
+        <div class="feature-card card">
+          <div class="feature-icon">🤖</div>
+          <h3>{t('home.features.intelligent.title')}</h3>
+          <p>{t('home.features.intelligent.desc')}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="overview section" style="background: var(--color-bg-light);">
+    <div class="container">
+      <h2 class="section-title">项目概述</h2>
+      <div class="overview-content">
+        <p class="overview-text">
+          人机物融合操作系统是工业互联网软件平台发展的新阶段。在设计思想上，体现了"场景就是计算机"、
+          以软件驾驭系统复杂性实现"第一性原理"的新系统构建理念；在技术实现上，融合了"泛在互联"、
+          "软件定义"和"智能驱动"的新技术体系。
+        </p>
+        <p class="overview-text">
+          本项目旨在突破现有工业物联网平台依赖IT+OT这一初级方式实现产业升级的限制，
+          按照操作系统的应有架构，开发出全面支撑人机物融合应用的工业互联网操作系统。
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 6rem 0;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    opacity: 0.95;
+  }
+
+  .hero-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: white;
+    color: #667eea;
+    padding: 0.875rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  .btn-primary:hover {
+    background: #f8fafc;
+    color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: 2px solid white;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .feature-card {
+    text-align: center;
+  }
+
+  .feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-card h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .overview-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .overview-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 4rem 0;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

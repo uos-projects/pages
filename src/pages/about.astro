@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { useTranslations } from '../config';
+
+const t = useTranslations('zh');
+---
+
+<Layout title="关于项目 - UROS">
+  <section class="page-header">
+    <div class="container">
+      <h1>{t('about.title')}</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="content">
+        <h2>项目背景</h2>
+        <p>
+          人机物融合操作系统是工业互联网软件平台发展的新阶段。在设计思想上，体现了"场景就是计算机"、
+          以软件驾驭系统复杂性实现"第一性原理"的新系统构建理念；在技术实现上，融合了"泛在互联"、
+          "软件定义"和"智能驱动"的新技术体系；在生态构建上，为多样、多变的领域应用和设备构造平台基点，
+          也为行业社区提供包容发展的生态环境。
+        </p>
+
+        <h2>研究目标</h2>
+        <p>
+          本项目的研究目标涵盖技术和标准与生态两个层面。
+        </p>
+        
+        <h3>技术层面</h3>
+        <p>
+          旨在突破现有工业物联网平台依赖IT+OT这一初级方式实现产业升级的限制，按照操作系统的应有架构，
+          开发出全面支撑人机物融合应用的工业互联网操作系统。这个系统将支持全生产要素的有序互动，
+          实现智能化管控的资源管理和可演化应变的应用运行，确保在面对不同生产需求和环境变化时能够灵活调整和优化。
+        </p>
+
+        <h3>标准与生态层面</h3>
+        <p>
+          项目选取电力信息作为目标行业进行技术验证和推广，通过研发制定资源模型标准、通信交互标准、
+          应用协同标准等，推动电力信息领域的人机物融合操作系统生态发展。这不仅能提升电力行业的智能化水平和协同效率，
+          还将为其他工业生产领域提供参考和标准，推动这些研究成果在更多行业的适配与落地，
+          全面实现生产链的优化和全产业链、全价值链的重塑。
+        </p>
+
+        <h2>核心技术体系</h2>
+        <div class="tech-grid">
+          <div class="tech-item card">
+            <h4>泛在互联</h4>
+            <p>支持全生产要素的有序互动，实现设备、人员、系统的无缝连接</p>
+          </div>
+          <div class="tech-item card">
+            <h4>软件定义</h4>
+            <p>以软件驾驭系统复杂性，实现灵活可配置的系统架构</p>
+          </div>
+          <div class="tech-item card">
+            <h4>智能驱动</h4>
+            <p>智能化管控的资源管理和可演化应变的应用运行</p>
+          </div>
+        </div>
+
+        <h2>项目愿景</h2>
+        <p>
+          通过兼容式发展路线，实现对国际先进水平的赶超，确保所开发的技术和标准不仅能在国内广泛应用，
+          也能够与国际接轨，并为我国由制造大国迈向制造强国作出技术贡献。
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    background: var(--color-bg-light);
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-header h1 {
+    text-align: center;
+    color: var(--color-text);
+  }
+
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .content h2 {
+    color: var(--color-primary);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .content h3 {
+    color: var(--color-secondary);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .content h4 {
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .content p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: 1.25rem;
+  }
+
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .tech-item {
+    padding: 1.5rem;
+  }
+
+  .tech-item h4 {
+    color: var(--color-primary);
+    font-size: 1.2rem;
+  }
+
+  .tech-item p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .tech-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+

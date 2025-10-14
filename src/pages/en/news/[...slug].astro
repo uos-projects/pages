@@ -1,0 +1,138 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import { useTranslations } from '../../../config';
+
+export async function getStaticPaths() {
+  const newsEntries = await getCollection('news', ({ data }) => {
+    return data.lang === 'en';
+  });
+  return newsEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const t = useTranslations('en');
+---
+
+<Layout title={`${entry.data.title} - UROS`} description={entry.data.description}>
+  <article class="article">
+    <div class="container">
+      <div class="article-header">
+        <a href="/en/news" class="back-link">← {t('news.back')}</a>
+        <div class="article-date">
+          {entry.data.pubDate.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}
+        </div>
+        <h1 class="article-title">{entry.data.title}</h1>
+        <p class="article-description">{entry.data.description}</p>
+      </div>
+      
+      <div class="article-content">
+        <Content />
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .article {
+    padding: 3rem 0;
+  }
+
+  .container {
+    max-width: 800px;
+  }
+
+  .article-header {
+    margin-bottom: 3rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+
+  .article-date {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-title {
+    font-size: 2.5rem;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .article-description {
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  .article-content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .article-content :global(h2) {
+    color: var(--color-primary);
+    font-size: 1.75rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .article-content :global(h3) {
+    color: var(--color-secondary);
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-content :global(p) {
+    margin-bottom: 1.25rem;
+  }
+
+  .article-content :global(ul),
+  .article-content :global(ol) {
+    margin-bottom: 1.25rem;
+    padding-left: 2rem;
+  }
+
+  .article-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .article-content :global(strong) {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  @media (max-width: 768px) {
+    .article-title {
+      font-size: 2rem;
+    }
+
+    .article-content :global(h2) {
+      font-size: 1.5rem;
+    }
+
+    .article-content :global(h3) {
+      font-size: 1.25rem;
+    }
+  }
+</style>
+

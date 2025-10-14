@@ -1,0 +1,160 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../config';
+
+const t = useTranslations('en');
+
+const teams = [
+  {
+    role: 'Lead Institution',
+    description: 'As the lead institution, Nanjing University is responsible for overall planning, technical research and development, and academic research.',
+    website: 'https://www.nju.edu.cn',
+    logo: '/logos/nanjing-university-logo.png',
+  },
+  {
+    role: 'Participating Institution',
+    description: 'NJU Shangcheng is responsible for industrial application and technology transfer, promoting the implementation of research results in practical scenarios.',
+    website: '#',
+    logo: '/logos/shangcheng-tech-logo.jpg',
+  },
+  {
+    role: 'Participating Institution',
+    description: 'Zhongchuang Software is responsible for middleware technical support and industry application promotion, facilitating the formulation and implementation of technical standards.',
+    website: '#',
+    logo: '/logos/zhongchuang-software-logo.png',
+  },
+];
+---
+
+<Layout title="Team - UROS">
+  <section class="page-header">
+    <div class="container">
+      <h1>{t('team.title')}</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="team-intro">
+        <p>
+          The UROS project is led by Nanjing University, in collaboration with Jiangsu NJU Shangcheng 
+          Hi-Tech Industrial Co., Ltd. and Shandong Zhongchuang Software Commercial Middleware Co., Ltd. 
+          The three parties leverage their respective strengths to collaboratively advance the project's 
+          technical research, industrial applications, and ecosystem development.
+        </p>
+      </div>
+
+      <div class="teams-grid">
+        {teams.map(team => (
+          <div class="team-card card">
+            <div class="team-logo">
+              <img src={team.logo} alt="Logo" />
+            </div>
+            <div class="team-header">
+              <span class="team-role">{team.role}</span>
+            </div>
+            <p class="team-description">{team.description}</p>
+            {team.website !== '#' && (
+              <a href={team.website} target="_blank" rel="noopener noreferrer" class="team-link">
+                Visit Website →
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    background: var(--color-bg-light);
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-header h1 {
+    text-align: center;
+    color: var(--color-text);
+  }
+
+  .team-intro {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+  }
+
+  .team-intro p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-light);
+  }
+
+  .teams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .team-card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .team-logo {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    padding: 1rem;
+  }
+
+  .team-logo img {
+    max-width: 280px;
+    max-height: 100px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .team-header {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .team-role {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .team-description {
+    color: var(--color-text-light);
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 1rem;
+  }
+
+  .team-link {
+    color: var(--color-primary);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  @media (max-width: 768px) {
+    .teams-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+

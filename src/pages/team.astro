@@ -1,0 +1,304 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { useTranslations } from '../config';
+
+const t = useTranslations('zh');
+
+const teams = [
+  {
+    role: '项目牵头单位',
+    description: '南京大学作为项目牵头单位，负责项目的总体规划、技术研发和学术研究工作。',
+    website: 'https://www.nju.edu.cn',
+    logo: '/logos/nanjing-university-logo.png',
+    principal: {
+      name: '马晓星',
+      title: '博士，教授，博士生导师',
+      position: '国家杰出青年科学基金项目负责人',
+      currentRole: '南京大学计算机科学与技术系主任',
+      avatar: '/images/mxx.png',
+      bio: '主要研究领域包括智能化软件工程、软件自适应技术等。主持国家973/863项目课题、国家自然科学基金重大项目课题等多个重要科研项目，在国内外重要学术期刊和会议发表论文百余篇，并获ACM SigSoft杰出论文奖、ICSE最佳论文奖等。'
+    }
+  },
+  {
+    role: '参与单位',
+    description: '南大尚诚负责项目的产业化应用和技术转化工作，推动研究成果在实际场景中的落地。',
+    website: '#',
+    logo: '/logos/shangcheng-tech-logo.jpg',
+  },
+  {
+    role: '参与单位',
+    description: '中创软件负责项目的中间件技术支持和行业应用推广，促进技术标准的制定与实施。',
+    website: '#',
+    logo: '/logos/zhongchuang-software-logo.png',
+  },
+];
+---
+
+<Layout title="研究团队 - UROS">
+  <section class="page-header">
+    <div class="container">
+      <h1>{t('team.title')}</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="team-intro">
+        <p>
+          UROS项目由南京大学牵头，联合江苏南大尚诚高科技实业有限公司与山东中创软件商用中间件股份有限公司共同开展。
+          三方发挥各自优势，协同推进项目的技术研发、产业应用和生态建设。
+        </p>
+      </div>
+
+      <div class="teams-layout">
+        <!-- 南京大学和项目负责人 -->
+        <div class="nju-section">
+          <div class="nju-card card">
+            <div class="team-logo">
+              <img src={teams[0].logo} alt="Logo" />
+            </div>
+            <div class="team-header">
+              <span class="team-role">{teams[0].role}</span>
+            </div>
+            <p class="team-description">{teams[0].description}</p>
+            {teams[0].website !== '#' && (
+              <a href={teams[0].website} target="_blank" rel="noopener noreferrer" class="team-link">
+                访问官网 →
+              </a>
+            )}
+          </div>
+          
+          <div class="principal-card card">
+            <h4 class="principal-title">项目负责人</h4>
+            <div class="principal-profile">
+              <div class="principal-avatar">
+                <img src={teams[0].principal.avatar} alt={teams[0].principal.name} />
+              </div>
+              <div class="principal-details">
+                <h5 class="principal-name">{teams[0].principal.name}</h5>
+                <p class="principal-title-text">{teams[0].principal.title}</p>
+                <p class="principal-position">{teams[0].principal.position}</p>
+                <p class="principal-role">{teams[0].principal.currentRole}</p>
+                {teams[0].principal.bio && (
+                  <div class="principal-bio">
+                    <p>{teams[0].principal.bio}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 尚诚和中创 -->
+        <div class="partner-section">
+          {teams.slice(1).map((team, index) => (
+            <div class="partner-card card">
+              <div class="team-logo">
+                <img src={team.logo} alt="Logo" class={index === 1 ? 'zhongchuang-logo' : ''} />
+              </div>
+              <div class="team-header">
+                <span class="team-role">{team.role}</span>
+              </div>
+              <p class="team-description">{team.description}</p>
+              {team.website !== '#' && (
+                <a href={team.website} target="_blank" rel="noopener noreferrer" class="team-link">
+                  访问官网 →
+                </a>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    background: var(--color-bg-light);
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-header h1 {
+    text-align: center;
+    color: var(--color-text);
+  }
+
+  .team-intro {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+  }
+
+  .team-intro p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-light);
+  }
+
+  .teams-layout {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .nju-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .partner-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .nju-card,
+  .principal-card,
+  .partner-card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .team-logo {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    padding: 1rem;
+  }
+
+  .team-logo img {
+    max-width: 280px;
+    max-height: 100px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .zhongchuang-logo {
+    max-height: 60px !important;
+    height: 60px !important;
+    width: auto !important;
+  }
+
+  .team-header {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .team-role {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .team-description {
+    color: var(--color-text-light);
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 1rem;
+  }
+
+  .team-link {
+    color: var(--color-primary);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .principal-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .principal-title {
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .principal-profile {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    flex: 1;
+  }
+
+  .principal-avatar {
+    flex-shrink: 0;
+  }
+
+  .principal-avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-border);
+  }
+
+  .principal-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .principal-name {
+    color: var(--color-text);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .principal-title-text,
+  .principal-position,
+  .principal-role {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+  }
+
+  .principal-bio {
+    margin-top: 1rem;
+    flex: 1;
+  }
+
+  .principal-bio p {
+    color: var(--color-text);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .nju-section {
+      grid-template-columns: 1fr;
+    }
+
+    .partner-section {
+      grid-template-columns: 1fr;
+    }
+
+    .principal-profile {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .principal-avatar {
+      align-self: center;
+    }
+  }
+</style>
+

@@ -1,0 +1,124 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../config';
+
+const t = useTranslations('en');
+---
+
+<Layout title="Contact Us - UROS">
+  <section class="page-header">
+    <div class="container">
+      <h1>{t('contact.title')}</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="info-card card">
+            <h3>📧 {t('contact.email')}</h3>
+            <p><a href="mailto:contact@uros-project.example.com">contact@uros-project.example.com</a></p>
+          </div>
+
+          <div class="info-card card">
+            <h3>📍 {t('contact.address')}</h3>
+            <p>163 Xianlin Avenue, Qixia District</p>
+            <p>Nanjing, Jiangsu Province, China</p>
+            <p>Nanjing University</p>
+          </div>
+
+          <div class="info-card card">
+            <h3>📞 {t('contact.phone')}</h3>
+            <p>+86 025-xxxx-xxxx</p>
+          </div>
+        </div>
+
+        <div class="contact-message">
+          <div class="card">
+            <h3>Collaboration Inquiries</h3>
+            <p>
+              We welcome partners from academia and industry to contact us. If you are interested in 
+              the UROS project or would like to learn more about it, please reach out to us through 
+              the contact information above.
+            </p>
+            <p>
+              We will be happy to assist you and look forward to in-depth exchanges and collaborations with you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    background: var(--color-bg-light);
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-header h1 {
+    text-align: center;
+    color: var(--color-text);
+  }
+
+  .contact-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .info-card {
+    text-align: center;
+  }
+
+  .info-card h3 {
+    color: var(--color-text);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .info-card p {
+    color: var(--color-text-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .info-card a {
+    color: var(--color-primary);
+    word-break: break-all;
+  }
+
+  .contact-message {
+    margin-top: 2rem;
+  }
+
+  .contact-message .card {
+    background: var(--color-bg-light);
+  }
+
+  .contact-message h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .contact-message p {
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .contact-info {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+

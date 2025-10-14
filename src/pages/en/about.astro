@@ -1,0 +1,155 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../config';
+
+const t = useTranslations('en');
+---
+
+<Layout title="About - UROS">
+  <section class="page-header">
+    <div class="container">
+      <h1>{t('about.title')}</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="content">
+        <h2>Background</h2>
+        <p>
+          The Human-Cyber-Physical Convergence Operating System represents a new stage in the development 
+          of industrial internet software platforms. In design philosophy, it embodies the new system 
+          construction concept of "scenario as computer" and implements first principles by controlling 
+          system complexity through software. In technical implementation, it integrates the new 
+          technological system of "ubiquitous connectivity," "software-defined," and "intelligence-driven." 
+          In ecosystem building, it constructs platform foundations for diverse and variable domain 
+          applications and devices, while providing an inclusive development environment for industry communities.
+        </p>
+
+        <h2>Research Objectives</h2>
+        <p>
+          The research objectives of this project cover two levels: technology and standards & ecosystem.
+        </p>
+        
+        <h3>Technical Level</h3>
+        <p>
+          The project aims to break through the limitations of existing industrial IoT platforms that 
+          rely on the elementary approach of IT+OT for industrial upgrading. Following the proper 
+          architecture of operating systems, we will develop an industrial internet operating system 
+          that fully supports human-cyber-physical convergence applications. This system will support 
+          orderly interaction of all production elements, implement intelligent resource management 
+          and evolvable application runtime, ensuring flexible adjustment and optimization when facing 
+          different production demands and environmental changes.
+        </p>
+
+        <h3>Standards & Ecosystem Level</h3>
+        <p>
+          The project selects the power information sector as the target industry for technical verification 
+          and promotion. Through the development and formulation of resource model standards, communication 
+          interaction standards, application collaboration standards, etc., we promote the development of 
+          the human-cyber-physical convergence operating system ecosystem in the power information field. 
+          This will not only enhance the intelligence level and collaborative efficiency of the power industry, 
+          but also provide reference and standards for other industrial production fields, promoting the 
+          adaptation and implementation of these research results in more industries, and comprehensively 
+          achieving the optimization of production chains and the reshaping of the entire industrial and value chains.
+        </p>
+
+        <h2>Core Technology System</h2>
+        <div class="tech-grid">
+          <div class="tech-item card">
+            <h4>Ubiquitous Connectivity</h4>
+            <p>Supporting orderly interaction of all production elements and seamless connection of devices, personnel, and systems</p>
+          </div>
+          <div class="tech-item card">
+            <h4>Software-Defined</h4>
+            <p>Controlling system complexity through software to achieve flexible and configurable system architecture</p>
+          </div>
+          <div class="tech-item card">
+            <h4>Intelligence-Driven</h4>
+            <p>Intelligent resource management and evolvable application runtime</p>
+          </div>
+        </div>
+
+        <h2>Project Vision</h2>
+        <p>
+          Through a compatible development route, we aim to achieve catch-up with international advanced 
+          levels, ensuring that the developed technologies and standards can not only be widely applied 
+          domestically but also align with international standards, making technical contributions to 
+          China's transformation from a manufacturing powerhouse to a manufacturing leader.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    background: var(--color-bg-light);
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-header h1 {
+    text-align: center;
+    color: var(--color-text);
+  }
+
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .content h2 {
+    color: var(--color-primary);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .content h3 {
+    color: var(--color-secondary);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .content h4 {
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .content p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: 1.25rem;
+  }
+
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .tech-item {
+    padding: 1.5rem;
+  }
+
+  .tech-item h4 {
+    color: var(--color-primary);
+    font-size: 1.2rem;
+  }
+
+  .tech-item p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .tech-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+

@@ -1,0 +1,52 @@
+---
+import { getLangFromUrl, languages } from '../config';
+
+const lang = getLangFromUrl(Astro.url);
+const currentPath = Astro.url.pathname;
+
+function getLocalizedPath(targetLang: string) {
+  if (lang === 'zh') {
+    return targetLang === 'zh' ? currentPath : `/en${currentPath}`;
+  } else {
+    return targetLang === 'zh' ? currentPath.replace(/^\/en/, '') || '/' : currentPath;
+  }
+}
+---
+
+<div class="language-picker">
+  {Object.entries(languages).map(([code, name]) => (
+    <a 
+      href={getLocalizedPath(code)}
+      class={`lang-link ${code === lang ? 'active' : ''}`}
+    >
+      {name}
+    </a>
+  ))}
+</div>
+
+<style>
+  .language-picker {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .lang-link {
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    transition: all 0.2s;
+  }
+
+  .lang-link:hover {
+    background: var(--color-bg-light);
+    color: var(--color-text);
+  }
+
+  .lang-link.active {
+    background: var(--color-primary);
+    color: white;
+  }
+</style>
+

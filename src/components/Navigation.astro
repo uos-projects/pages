@@ -1,0 +1,140 @@
+---
+import { getLangFromUrl, useTranslations, languages } from '../config';
+import LanguagePicker from './LanguagePicker.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const navItems = [
+  { key: 'nav.home', href: lang === 'zh' ? '/' : `/${lang}/` },
+  { key: 'nav.about', href: lang === 'zh' ? '/about' : `/${lang}/about` },
+  { key: 'nav.team', href: lang === 'zh' ? '/team' : `/${lang}/team` },
+  { key: 'nav.news', href: lang === 'zh' ? '/news' : `/${lang}/news` },
+  { key: 'nav.contact', href: lang === 'zh' ? '/contact' : `/${lang}/contact` },
+];
+---
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav-content">
+      <a href={lang === 'zh' ? '/' : `/${lang}/`} class="logo">
+        <span class="logo-text">UROS</span>
+      </a>
+      
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-items" id="nav-items">
+        {navItems.map(item => (
+          <a href={item.href} class="nav-link">
+            {t(item.key as any)}
+          </a>
+        ))}
+        <LanguagePicker />
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .nav {
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+  }
+
+  .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .logo-text {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .mobile-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-text);
+    transition: all 0.3s;
+  }
+
+  .nav-items {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .nav-link {
+    color: var(--color-text);
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover {
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .mobile-toggle {
+      display: flex;
+    }
+
+    .nav-items {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      flex-direction: column;
+      padding: 1rem;
+      border-bottom: 1px solid var(--color-border);
+      gap: 1rem;
+      display: none;
+    }
+
+    .nav-items.active {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('mobile-toggle');
+  const navItems = document.getElementById('nav-items');
+
+  toggle?.addEventListener('click', () => {
+    navItems?.classList.toggle('active');
+  });
+</script>
+
