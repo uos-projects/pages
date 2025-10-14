@@ -1,7 +1,7 @@
 ---
 title: 'Significant Progress in Standards Development'
 description: 'The UOS project has made important progress in developing resource model standards and communication interaction standards, laying a foundation for ecosystem development.'
-pubDate: 2024-06-10
+pubDate: 2025-06-10
 lang: 'en'
 ---
 

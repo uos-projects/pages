@@ -1,17 +1,17 @@
 ---
 title: 'UOS Project Officially Launched'
 description: 'The Human-Cyber-Physical Convergence Operating System project for power information scenarios has been officially launched, with Nanjing University and industry partners working together to advance the project.'
-pubDate: 2024-01-15
+pubDate: 2024-12-22
 lang: 'en'
 ---
 
 ## Official Project Launch
 
-On January 15, 2024, the "Human-Cyber-Physical Convergence Operating System Technology R&D for Power Information Scenarios" project was officially launched at Nanjing University. The project is led by Nanjing University, with participation from Jiangsu NJU Shangcheng Hi-Tech Industrial Co., Ltd. and Shandong Zhongchuang Software Commercial Middleware Co., Ltd.
+On December 22, 2024, the "Human-Cyber-Physical Convergence Operating System Technology R&D for Power Information Scenarios" project was officially launched at Nanjing University. The project is led by Nanjing University, with participation from Jiangsu NJU Shangcheng Hi-Tech Industrial Co., Ltd. and Shandong Zhongchuang Software Commercial Middleware Co., Ltd.
 
 ## Kickoff Meeting
 
-The project kickoff meeting was held at Nanjing University, bringing together researchers and technical experts from all three institutions to discuss the implementation plan and technical roadmap. The meeting clarified the overall objectives, phased tasks, and collaboration mechanisms of the project.
+The project kickoff meeting was held at Nanjing University, bringing together researchers and technical experts from the three participating institutions. The meeting also invited experts from Fudan University, Nanjing University of Aeronautics and Astronautics, and the Electric Power Research Institute of State Grid Jiangsu Electric Power Co., Ltd., engaging in extensive discussions on the project domain and technical approaches. The meeting clarified the overall objectives, phased tasks, and collaboration mechanisms of the project.
 
 ## Project Objectives
 
