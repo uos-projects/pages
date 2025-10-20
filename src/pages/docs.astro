@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="文档 - UOS">
+  <section class="page-header">
+    <div class="container">
+      <h1>UOS 文档</h1>
+      <p class="subtitle">项目概览、架构与使用说明（即将完善）</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="content">
+        <h2>目录</h2>
+        <ul class="doc-list">
+          <li>项目简介</li>
+          <li>总体架构</li>
+          <li>模块说明</li>
+          <li>标准与接口</li>
+          <li>示例与案例</li>
+        </ul>
+        <p class="note">更多内容将陆续补充，敬请期待。</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    background: var(--color-bg-light);
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--color-border);
+    text-align: center;
+  }
+
+  .subtitle {
+    color: var(--color-text-light);
+    margin-top: 0.5rem;
+  }
+
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .doc-list {
+    margin: 0 0 1rem 1.25rem;
+    list-style: disc;
+  }
+
+  .note {
+    color: var(--color-text-light);
+  }
+</style>
+
+
