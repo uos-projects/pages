@@ -1,12 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// 获取所有文档
+const allDocs = await getCollection('docs');
+// 筛选中文文档
+const zhDocs = allDocs.filter(doc => doc.data.lang === 'zh' || doc.data.lang === undefined);
+// 按发布日期排序
+zhDocs.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
 <Layout title="文档 - UOS">
   <section class="page-header">
     <div class="container">
       <h1>UOS 文档</h1>
-      <p class="subtitle">项目概览、架构与使用说明（即将完善）</p>
+      <p class="subtitle">项目概览、架构与使用说明</p>
     </div>
   </section>
 
@@ -15,21 +23,25 @@ import Layout from '../layouts/Layout.astro';
       <div class="content">
         <h2>技术文档</h2>
         <div class="doc-links">
-          <a href="/docs/rosix-whitepaper" class="doc-link">
-            <h3>ROSIX 白皮书（UOS技术规范草案）</h3>
-            <p>Resource Operating System Interface 白皮书 v1.2，详细的技术规范和API参考</p>
-          </a>
+          {zhDocs.length > 0 ? (
+            <div class="doc-grid">
+              {zhDocs.map((doc) => (
+                <a href={`/docs/${doc.slug}`} class="doc-card">
+                  <h3>{doc.data.title}</h3>
+                  <p>{doc.data.description}</p>
+                  <div class="doc-meta">
+                    <span class="doc-date">
+                      {doc.data.pubDate.toLocaleDateString('zh-CN')}
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <p class="note">技术文档正在完善中，敬请期待。</p>
+          )}
         </div>
         
-        <h2>目录</h2>
-        <ul class="doc-list">
-          <li>项目简介</li>
-          <li>总体架构</li>
-          <li>模块说明</li>
-          <li>标准与接口</li>
-          <li>示例与案例</li>
-        </ul>
-        <p class="note">更多内容将陆续补充，敬请期待。</p>
       </div>
     </div>
   </section>
@@ -66,33 +78,64 @@ import Layout from '../layouts/Layout.astro';
     margin: 2rem 0;
   }
 
-  .doc-link {
+  .doc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .doc-card {
     display: block;
     padding: 1.5rem;
+    background: #ffffff;
     border: 1px solid var(--color-border);
     border-radius: 8px;
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
-    background: var(--color-bg-light);
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   }
 
-  .doc-link:hover {
-    border-color: var(--color-primary);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  .doc-card:hover {
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-primary);
   }
 
-  .doc-link h3 {
-    margin: 0 0 0.5rem 0;
-    color: var(--color-primary);
+  .doc-card h3 {
     font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.4;
   }
 
-  .doc-link p {
-    margin: 0;
-    color: var(--color-text-light);
-    font-size: 0.95rem;
+  .doc-card p {
+    color: #4a5568;
+    margin: 0 0 1rem 0;
+    line-height: 1.5;
+  }
+
+  .doc-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #718096;
+  }
+
+  .doc-date {
+    background: #edf2f7;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 768px) {
+    .doc-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
   }
 </style>
 
