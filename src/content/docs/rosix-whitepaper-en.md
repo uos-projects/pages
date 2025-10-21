@@ -1,21 +1,21 @@
 ---
-title: "ROSIX Whitepaper v1.2 (Draft Standard)"
+title: "ROSIX Whitepaper v0.3 (Draft Standard)"
 description: "UOS (Human-Cyber-Physical Convergence Operating System) core standard interface specification, including complete technical architecture and API definitions"
 pubDate: 2025-06-15
 lang: "en"
 ---
 
 **Version History**  
-- **v1.0**: Initial draft, released January 2025, defining ROSIX core interfaces and concepts.  
-- **v1.1**: Revised version, August 21, 2025, expanded details, added examples, enhanced professionalism.  
-- **v1.2**: Integrated UOS overview, optimized structure, supplemented implementation guidelines and industry use cases, October 10, 2025.  
+- **v0.1**: Initial draft, released January 2025, defining ROSIX core interfaces and concepts.  
+- **v0.2**: Revised version, August 21, 2025, expanded details, added examples, enhanced professionalism.  
+- **v0.3**: Integrated UOS overview, optimized structure, supplemented implementation guidelines and industry use cases, October 10, 2025.  
 
 **Authors and Contributors**  
 - UOS Project Team (uos-projects).  
 - Contact: Submit Issues or Pull Requests through GitHub repository https://github.com/uos-projects/uos-rosix.  
 
 **Document Purpose**  
-This whitepaper defines **UOS (Unified Operating System, Human-Cyber-Physical Convergence Operating System)** and its core standard interface **ROSIX (Resource-Oriented System Interface for X)**, providing developers, system integrators, and industry practitioners with a unified, extensible framework to achieve seamless integration of the physical world (humans, devices, environment) with the digital world. The revised version v1.2 integrates the overall UOS architecture, refines ROSIX interface specifications, supplements industry use cases (such as power inspection), and provides implementation guidelines, aiming to enhance operability and cross-domain applicability.
+This whitepaper defines **UOS (Unified Operating System, Human-Cyber-Physical Convergence Operating System)** and its core standard interface **ROSIX (Resource-Oriented System Interface for X)**, providing developers, system integrators, and industry practitioners with a unified, extensible framework to achieve seamless integration of the physical world (humans, devices, environment) with the digital world. The revised version v0.3 integrates the overall UOS architecture, refines ROSIX interface specifications, supplements industry use cases (such as power inspection), and provides implementation guidelines, aiming to enhance operability and cross-domain applicability.
 
 ## 1. UOS Overview
 
