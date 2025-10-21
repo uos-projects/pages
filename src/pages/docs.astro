@@ -13,6 +13,14 @@ import Layout from '../layouts/Layout.astro';
   <section class="section">
     <div class="container">
       <div class="content">
+        <h2>技术文档</h2>
+        <div class="doc-links">
+          <a href="/docs/rosix-whitepaper" class="doc-link">
+            <h3>ROSIX 白皮书（UOS技术规范草案）</h3>
+            <p>Resource Operating System Interface 白皮书 v1.2，详细的技术规范和API参考</p>
+          </a>
+        </div>
+        
         <h2>目录</h2>
         <ul class="doc-list">
           <li>项目简介</li>
@@ -52,6 +60,39 @@ import Layout from '../layouts/Layout.astro';
 
   .note {
     color: var(--color-text-light);
+  }
+
+  .doc-links {
+    margin: 2rem 0;
+  }
+
+  .doc-link {
+    display: block;
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    background: var(--color-bg-light);
+  }
+
+  .doc-link:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .doc-link h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--color-primary);
+    font-size: 1.25rem;
+  }
+
+  .doc-link p {
+    margin: 0;
+    color: var(--color-text-light);
+    font-size: 0.95rem;
   }
 </style>
 
