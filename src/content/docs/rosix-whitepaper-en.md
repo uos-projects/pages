@@ -7,8 +7,8 @@ lang: "en"
 
 **Version History**  
 - **v0.1**: Initial draft, released January 2025, defining ROSIX core interfaces and concepts.  
-- **v0.2**: Revised version, August 21, 2025, expanded details, added examples, enhanced professionalism.  
-- **v0.3**: Integrated UOS overview, optimized structure, supplemented implementation guidelines and industry use cases, October 10, 2025.  
+- **v0.2**: Revised version, May 21, 2025, expanded details, added examples, enhanced professionalism.  
+- **v0.3**: Integrated UOS overview, optimized structure, supplemented implementation guidelines and industry use cases, June 10, 2025.  
 
 **Authors and Contributors**  
 - UOS Project Team (uos-projects).  
