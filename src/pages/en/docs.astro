@@ -1,12 +1,20 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// Get all documents
+const allDocs = await getCollection('docs');
+// Filter English documents
+const enDocs = allDocs.filter(doc => doc.data.lang === 'en');
+// Sort by publication date
+enDocs.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
 <Layout title="Docs - UOS">
   <section class="page-header">
     <div class="container">
-      <h1>UOS Documentation</h1>
-      <p class="subtitle">Project overview, architecture and usage (coming soon)</p>
+      <h1>UOS Technical Documentation</h1>
+      <p class="subtitle">Project overview, architecture and usage</p>
     </div>
   </section>
 
@@ -15,18 +23,24 @@ import Layout from '../../layouts/Layout.astro';
       <div class="content">
         <h2>Technical Documentation</h2>
         <div class="doc-links">
-          <p class="note">Technical documentation is being developed. Stay tuned.</p>
+          {enDocs.length > 0 ? (
+            <div class="doc-grid">
+              {enDocs.map((doc) => (
+                <a href={`/en/docs/${doc.slug}`} class="doc-card">
+                  <h3>{doc.data.title}</h3>
+                  <p>{doc.data.description}</p>
+                  <div class="doc-meta">
+                    <span class="doc-date">
+                      {doc.data.pubDate.toLocaleDateString('en-US')}
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <p class="note">Technical documentation is being developed. Stay tuned.</p>
+          )}
         </div>
-        
-        <h2>Contents</h2>
-        <ul class="doc-list">
-          <li>Introduction</li>
-          <li>Architecture</li>
-          <li>Modules</li>
-          <li>Standards & Interfaces</li>
-          <li>Examples & Cases</li>
-        </ul>
-        <p class="note">More content will be added gradually. Stay tuned.</p>
       </div>
     </div>
   </section>
@@ -50,11 +64,6 @@ import Layout from '../../layouts/Layout.astro';
     margin: 0 auto;
   }
 
-  .doc-list {
-    margin: 0 0 1rem 1.25rem;
-    list-style: disc;
-  }
-
   .note {
     color: var(--color-text-light);
   }
@@ -63,33 +72,64 @@ import Layout from '../../layouts/Layout.astro';
     margin: 2rem 0;
   }
 
-  .doc-link {
+  .doc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .doc-card {
     display: block;
     padding: 1.5rem;
+    background: #ffffff;
     border: 1px solid var(--color-border);
     border-radius: 8px;
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
-    background: var(--color-bg-light);
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   }
 
-  .doc-link:hover {
-    border-color: var(--color-primary);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  .doc-card:hover {
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-primary);
   }
 
-  .doc-link h3 {
-    margin: 0 0 0.5rem 0;
-    color: var(--color-primary);
+  .doc-card h3 {
     font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.4;
   }
 
-  .doc-link p {
-    margin: 0;
-    color: var(--color-text-light);
-    font-size: 0.95rem;
+  .doc-card p {
+    color: #4a5568;
+    margin: 0 0 1rem 0;
+    line-height: 1.5;
+  }
+
+  .doc-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #718096;
+  }
+
+  .doc-date {
+    background: #edf2f7;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 768px) {
+    .doc-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
   }
 </style>
 

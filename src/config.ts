@@ -11,7 +11,7 @@ export const ui = {
     'nav.about': '关于项目',
     'nav.team': '研究团队',
     'nav.news': '新闻动态',
-    'nav.docs': '文档',
+    'nav.docs': '技术文档',
     'nav.contact': '联系我们',
     'footer.copyright': '版权所有',
     'footer.all_rights_reserved': '保留所有权利',
