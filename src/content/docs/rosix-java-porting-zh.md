@@ -5,7 +5,6 @@ pubDate: 2025-08-11
 lang: "zh"
 ---
 
-# ROSIX Java Porting
 
 > **ROSIX (Resource Operating System Interface)** 的 Java 移植实现，将 C 接口翻译为符合 Java 习惯的现代化接口，为 UOS 人机物一体化操作系统提供 Java 编程体验。
 
